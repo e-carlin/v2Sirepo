@@ -1,13 +1,11 @@
-const e = React.createElement
+function e(type, props, children) {
+    return React.createElement(type, props, ...children);
+}
 
-function header() {
-    return e('h1', {}, "Contacts")
+function buttons() {
+    return ['Source', 'Lattice', 'Visualization'].map((t) => e('button', {}, t));
 }
 
 const rootElement =
-      e('div', {className: 'topnav'},
-	e('button', {className: 'active'}, 'Source'),
-	e('button', {}, 'Lattice'),
-	e('button', {}, 'Visualization'),
-       )
+      e('div', {className: 'topnav'}, buttons())
 ReactDOM.render(rootElement, document.getElementById('root'))
